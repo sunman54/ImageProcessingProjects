@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <style>
+          body {background: rgb(249,81,81);
+background: linear-gradient(45deg, rgba(249,81,81,1) 0%, rgba(98,255,100,1) 33%, rgba(76,97,254,1) 100%);}
+          h5   {color: rgb(0, 0, 0);}
+          h3   {color: blue; }
+          </style>
+</head>
+
+<body style="">
+
+    <nav id="problem_definition"  class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">BBM415 Image Processing Assignment 1</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#problem_definition">Problem Definition</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#aproach">Aproach</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#code">Code Review</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#results">Results</a>
+                  </li>
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <nav class="navbar fixed-bottom navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+              aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+              <ul class="navbar-nav ml-auto">
+                  <li class="nav-item active">
+                      <a class="nav-link" href="#problem_definition">Problem Definition</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#aproach">Aproach</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#code">Code Review</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#results">Results</a>
+                </li>
+
+              </ul>
+          </div>
+          <form class="d-flex" role="search">
+            <h5 style="color: aliceblue">Melih SUNMAN 21827809  </h5>
+          </form>
+      </div>
+  </nav>
+
+
+    <div class="container">
+        <br>
+        <br>
+
+        <h1 style="text-align: center;">Images of the Russian Empire: Colorizing the Prokudin-Gorskii Photo Collection</h1>
+
+
+
+
+        <br>
+        <br>
+ 
+        <div class="row" >
+            <h3>1- Problem Definition</h3>
+            <div class="col-sm-1"></div>
+            <h3 class="text-center"></h3>
+            <img src="img/intro.png" class="mx-auto d-block" style="width:40%">
+            <p class="text-center"></p>
+            <p>The aim of this project is to automatically generate color images from digitized Prokudin-Gorskii glass
+                plate images by applying some simple image processing techniques. For this, the red/green/blue color
+                channels were removed from the digitized license plate images and the images were aligned to create an
+                RGB color image with several visual imperfections.</p>
+
+
+        </div>
+
+
+        <br>
+        <br>
+
+        <div class="row" id="aproach">
+            <h3>2- Aproach</h3>
+            <div class="col-sm-1"></div>
+            
+            <h5>a) Dividing the input image into three equal parts corresponding to RGB channels</h5>
+                <br>
+            <div class="container text-center">
+                <div class="row">
+                  <div class="col">
+                    Full Image
+                    <img src="img/31421v.jpg" class="mx-auto d-block" style="width:60%">
+                    <br>
+              <br>
+              <br>
+                  </div>
+                  <div class="col">
+                    to 
+                    <img src="img/arrow.png" class="mx-auto d-block" style="width:60%">
+
+                  </div>
+                  <div class="col">
+                    Blue
+                    <img src="img/b.jpg" class="mx-auto d-block" style="width:60%">
+
+                  </div>
+                  <div class="col">
+                    Green
+                    <img src="img/g.jpg" class="mx-auto d-block" style="width:60%">
+
+                  </div>
+                  <div class="col">
+                    Red
+                    <img src="img/r.jpg" class="mx-auto d-block" style="width:60%">
+                        
+                  </div>
+                </div>
+              </div>
+<br>
+<br>
+<br>
+            <h5>b) Align the second and the third parts (G and R channels) to the first one (B channel).</h5>
+
+            <div class="container text-center">
+                <div class="row">
+                  
+                  
+                  <div class="col">
+                    Blue
+                    <img src="img/b.jpg" class="mx-auto d-block" style="width:60%">
+
+                  </div>
+                  <div class="col">
+                    Green
+                    <img src="img/g.jpg" class="mx-auto d-block" style="width:60%">
+
+                  </div>
+                  <div class="col">
+                    Red
+                    <img src="img/r.jpg" class="mx-auto d-block" style="width:60%">
+
+                  </div>
+                  <div class="col">
+                    to 
+                    <img src="img/arrow.png" class="mx-auto d-block" style="width:60%">
+
+                  </div>
+                  <div class="col">
+                    Colored Image 
+                    <img src="img/out1.jpg" class="mx-auto d-block" style="width:60%">
+                    <br>
+              <br>
+              <br>
+
+                  </div>
+                </div>
+              </div>
+
+
+              
+
+            <h5>c) Improve the quality of the aligned image</h5>
+            <div class="container text-center">
+            <br>
+            <br>
+
+                <div class="row">
+                  
+                  
+                  <div class="col">
+                    
+                    <img src="img/out1.jpg" class="mx-auto d-block" style="width:60%">
+
+                  </div>
+                  <div class="col">
+                     
+                    <img src="img/arrow.png" class="mx-auto d-block" style="width:60%">
+
+                  </div>
+                  <div class="col">
+                    
+                    <img src="img/out2.jpg" class="mx-auto d-block" style="width:60%">
+
+                  </div>
+                  
+                </div>
+              </div>
+
+        </div>
+
+
+        <br>
+        <br>
+
+        <div class="row" id="code">
+            <h3>3- Code</h3>
+
+            
+            <h5>a) Importing Necessary Libraries</h5>
+            <img src="code/import.jpg" class="mx-auto d-block" style="width:60%">
+            <br>
+         
+
+            <h5>b) Splitting Images for Colors</h5>
+            <img src="code/def_bgr_split.jpg" class="mx-auto d-block" style="width:60%">
+            <br>
+
+            <h5>c) Aligning Images with best Score</h5>
+            <img src="code/def_align_layers.jpg" class="mx-auto d-block" style="width:60%">
+            <br>
+
+            <h5>d) Measuring Align Score</h5>
+            <img src="code/def_score.jpg" class="mx-auto d-block" style="width:60%">
+
+            <h5>e) Processing All Image Files</h5>
+            <img src="code/for_loop.jpg" class="mx-auto d-block" style="width:60%">
+        
+
+        </div>
+
+
+        <div class="row" id="results">
+          <h3>4- Results</h3>
+          <div class="col-sm-1"></div>
+
+          <div class="container text-center">
+            <div class="row">
+              <div class="col">
+                <div class="row">
+                  
+                  
+                  <div class="col">
+                    
+                    <img src="input/00757v.jpg" class="mx-auto d-block" style="width:60%">
+      
+                  </div>
+
+                  <div class="col">
+                    
+                    <img src="out/00056v.jpg" class="mx-auto d-block" style="width:60%; visibility: hidden;">
+                    <img src="out/00757v.jpg" class="mx-auto d-block" style="width:100%;">
+      
+                  </div>
+                  
+                </div>
+              </div>
+
+              <div class="col">
+                <div class="row">
+                  
+                  
+                  <div class="col">
+                    
+                    <img src="input/00889v.jpg" class="mx-auto d-block" style="width:60%">
+      
+                  </div>
+
+                  <div class="col">
+                    
+                    <img src="out/00056v.jpg" class="mx-auto d-block" style="width:60%; visibility: hidden;">
+                    <img src="out/00889v.jpg" class="mx-auto d-block" style="width:100%;">
+      
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="container text-center">
+            <div class="row">
+              <div class="col">
+                <div class="row">
+                  
+                  
+                  <div class="col">
+                    
+                    <img src="input/01598v.jpg" class="mx-auto d-block" style="width:60%">
+      
+                  </div>
+
+                  <div class="col">
+                    
+                    <img src="out/00056v.jpg" class="mx-auto d-block" style="width:60%; visibility: hidden;">
+                    <img src="out/01598v.jpg" class="mx-auto d-block" style="width:100%;">
+      
+                  </div>
+                  
+                </div>
+              </div>
+              <div class="col">
+                <div class="row">
+                  
+                  
+                  <div class="col">
+                    
+                    <img src="input/00106v.jpg" class="mx-auto d-block" style="width:60%">
+      
+                  </div>
+
+                  <div class="col">
+                    
+                    <img src="out/00056v.jpg" class="mx-auto d-block" style="width:60%; visibility: hidden;">
+                    <img src="out/00106v.jpg" class="mx-auto d-block" style="width:100%;">
+      
+                  </div>
+                  
+                </div>
+              </div>
+
+            </div>
+          </div>
+          
+          
+          <div class="container text-center">
+            <div class="row">
+              <div class="col">
+                <div class="row">
+                  
+                  
+                  <div class="col">
+                    
+                    <img src="input/00125v.jpg" class="mx-auto d-block" style="width:60%">
+      
+                  </div>
+
+                  <div class="col">
+                    
+                    <img src="out/00056v.jpg" class="mx-auto d-block" style="width:60%; visibility: hidden;">
+                    <img src="out/00125v.jpg" class="mx-auto d-block" style="width:100%;">
+      
+                  </div>
+                  
+                </div>
+              </div>
+              <div class="col">
+                <div class="row">
+                  
+                  
+                  <div class="col">
+                    
+                    <img src="input/01522v.jpg" class="mx-auto d-block" style="width:60%">
+      
+                  </div>
+
+                  <div class="col">
+                    
+                    <img src="out/00056v.jpg" class="mx-auto d-block" style="width:60%; visibility: hidden;">
+                    <img src="out/01522v.jpg" class="mx-auto d-block" style="width:100%;">
+      
+                  </div>
+                  
+                </div>    
+              </div>
+            </div>
+          </div>
+
+
+
+      </div>
+
+
+
+
+
+        <br>
+        <br>
+        <br>
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
